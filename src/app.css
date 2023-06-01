@@ -18,6 +18,8 @@
 .favicon {
     display: inline-block;
     padding: 1rem;
+    width: 6rem;
+    font-size: .6rem;
 }
 
 .favicon:hover {
@@ -25,7 +27,7 @@
 }
 
 .favicon.is-selected {
-    border: 1px solid dodgerblue;
+    outline: 1px solid dodgerblue;
 }
 
 .favicon svg {
