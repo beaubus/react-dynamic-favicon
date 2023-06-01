@@ -25,7 +25,7 @@ function App()
 
                 <div className="favicons">
                     {favicons.map((favicon, index) => (
-                        <div key={index} >
+                        <div key={index} className="favicon">
                             <div dangerouslySetInnerHTML={{ __html: favicon.svg }} />
                             <p>{favicon.name}</p>
                         </div>

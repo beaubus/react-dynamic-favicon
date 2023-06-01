@@ -15,12 +15,16 @@
     grid-template-columns: repeat(10, 1fr);
 }
 
-.favicons > div {
+.favicon {
     display: inline-block;
     padding: 1rem;
 }
 
-.favicons svg {
+.favicon:hover {
+    background: #f9f9f9;
+}
+
+.favicon svg {
     width: 2rem;
     height: 2rem;
 }
