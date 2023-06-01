@@ -8,5 +8,21 @@ header("Access-Control-Allow-Headers: Content-Type");
 $action = $_GET['action'] ?? null;
 
 if ($action === 'getfavicons') { // Get formatted html with the latest tweets
-    die(file_get_contents('storage/favicons.json'));
+    $favicons = file_get_contents('storage/favicons.json');
+    $selected = file_get_contents('storage/selected_favicon.json');
+    die(json_encode([
+        'favicons' => json_decode($favicons),
+        'selected' => json_decode($selected),
+    ]));
 }
+
+if ($action === 'selectfavicon') { // Get formatted html with the latest tweets
+    $_PUT = json_decode(file_get_contents("php://input"), true);
+    if (!isset($_PUT['name'])) die(json_encode(['result' => false]));
+
+    $name = $_PUT['name'];
+    file_put_contents('storage/selected_favicon.json', "{\"name\": \"$name\"}");
+
+    die(json_encode(['result' => true]));
+}
+
