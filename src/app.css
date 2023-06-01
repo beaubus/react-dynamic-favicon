@@ -1,0 +1,26 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card {
+  padding: 2em;
+}
+
+.favicons {
+    display: block;
+    gap: 2rem;
+    grid-template-columns: repeat(10, 1fr);
+}
+
+.favicons > div {
+    display: inline-block;
+    padding: 1rem;
+}
+
+.favicons svg {
+    width: 2rem;
+    height: 2rem;
+}
