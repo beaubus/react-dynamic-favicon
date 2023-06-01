@@ -34,3 +34,12 @@
     width: 2rem;
     height: 2rem;
 }
+
+.remove-btn {
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.mb-4 {
+    margin-bottom: 4rem;
+}

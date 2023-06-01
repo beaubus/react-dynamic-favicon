@@ -2,6 +2,8 @@
 
 A simple app that dynamically changes the browser favicon to an SVG, while also saving the user's choice.
 
+![](demo.gif)
+
 Created with vite react template:
 ```shell
 npm create vite@latest react-dynamic-favicon --template react

@@ -2,7 +2,7 @@
 
 error_reporting(1); // turn off errors output
 header("Access-Control-Allow-Origin: http://127.0.0.1:5173"); // allow local browser access to backend
-header("Access-Control-Allow-Methods: GET, POST, PUT, OPTIONS");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 
 $action = $_GET['action'] ?? null;
@@ -22,6 +22,15 @@ if ($action === 'selectfavicon') { // Get formatted html with the latest tweets
 
     $name = $_PUT['name'];
     file_put_contents('storage/selected_favicon.json', "{\"name\": \"$name\"}");
+
+    die(json_encode(['result' => true]));
+}
+
+if ($action === 'deletefavicon') { // Get formatted html with the latest tweets
+    $_DELETE = json_decode(file_get_contents("php://input"), true);
+    if (!isset($_DELETE['name'])) die(json_encode(['result' => false]));
+
+    unlink('storage/selected_favicon.json');
 
     die(json_encode(['result' => true]));
 }
