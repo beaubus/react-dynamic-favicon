@@ -24,6 +24,10 @@
     background: #f9f9f9;
 }
 
+.favicon.is-selected {
+    border: 1px solid dodgerblue;
+}
+
 .favicon svg {
     width: 2rem;
     height: 2rem;

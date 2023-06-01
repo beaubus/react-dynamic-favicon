@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import {get} from './helpers.js'
 import './app.css';
+import {Favicon} from './App/Favicon.jsx';
 
 function App()
 {
@@ -16,6 +17,21 @@ function App()
         })
     }, []);
 
+    const handleFaviconClick = (selected_favicon) => {
+        const updatedFavicons = favicons.map((favicon) => {
+            if (favicon === selected_favicon) {
+                // Set browser favicon to the SVG
+                const link = document.querySelector('link[rel="icon"]');
+                link.href = `data:image/svg+xml,${encodeURIComponent(favicon.svg)}`;
+
+                return { ...favicon, is_selected: true };
+            } else {
+                return { ...favicon, is_selected: false };
+            }
+        });
+        setFavicons(updatedFavicons);
+    }
+
     return (
         <>
             <div className="card">
@@ -25,10 +41,10 @@ function App()
 
                 <div className="favicons">
                     {favicons.map((favicon, index) => (
-                        <div key={index} className="favicon">
-                            <div dangerouslySetInnerHTML={{ __html: favicon.svg }} />
-                            <p>{favicon.name}</p>
-                        </div>
+                        <Favicon key={index}
+                                 favicon={favicon}
+                                 onClick={handleFaviconClick}
+                        />
                     ))}
                 </div>
             </div>
